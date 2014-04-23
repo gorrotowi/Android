@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">BiciDF</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_user">Perfil</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="txtVDisp">Disponibles:</string>
+    <string name="vacio">-</string>
+    <string name="txtEspLib">Lugares libres: </string>
+    <string name="contentImg"></string>
+    <string name="title_activity_map_row">MapRowActivity</string>
+    <string name="title_activity_drawer">DrawerActivity</string>
+    <string name="title_activity_user">User</string>
+    <string name="nameString">Nombre</string>
+
+    <string-array name="nav_options">
+        <item>Mapa</item>
+        <item>Perfil</item>
+    </string-array>
+    <!-- Lista de iconos de navegacion -->
+    <array name="navigation_iconos">
+        <item>@drawable/ic_action_place</item>
+        <item>@drawable/ic_action_user</item>
+    </array>
+
+</resources>

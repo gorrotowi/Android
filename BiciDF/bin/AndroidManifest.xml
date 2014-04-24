@@ -27,7 +27,7 @@
             android:value="@integer/google_play_services_version" />
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
-            android:value="your api key" />
+            android:value="AIzaSyAd2SesUA8-AVeulmyXwdpp2Hae8cBI4-I" />
 
         <activity
             android:name="com.gorro.bicidf.MainActivity"
@@ -43,20 +43,14 @@
             android:label="@string/app_name"
             android:parentActivityName="com.gorro.bicidf.MainActivity" >
         </activity>
-        <!-- <activity -->
-        <!-- android:name="com.gorro.bicidf.DrawerActivity" -->
-        <!-- android:label="@string/app_name" > -->
-        <!-- <intent-filter> -->
-        <!-- <action android:name="android.intent.action.MAIN" /> -->
-
-
-        <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-        <!-- </intent-filter> -->
-        <!-- </activity> -->
         <activity
             android:name="com.gorro.bicidf.UserActivity"
-            android:label="@string/title_activity_user" 
-            android:parentActivityName="com.gorro.bicifd.MainActivity">
+            android:label="@string/title_activity_user"
+            android:parentActivityName="com.gorro.bicifd.MainActivity" >
+        </activity>
+        <activity
+            android:name="com.gorro.bicidf.EmergencyNumbers"
+            android:label="@string/title_activity_emergency_numbers" >
         </activity>
     </application>
 

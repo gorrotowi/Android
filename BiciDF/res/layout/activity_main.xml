@@ -25,6 +25,39 @@
         android:background="#7401DF" >
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Condicion del clima"
+            android:textColor="#2E2E2E" />
+
+        <TextView
+            android:id="@+id/txtClima"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="No disponible"
+            android:textColor="#FF8000" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:background="#7401DF" >
+    </LinearLayout>
+
     <ListView
         android:id="@+id/listaBicis"
         android:layout_width="match_parent"
@@ -40,14 +73,14 @@
     <LinearLayout
         android:id="@+id/btnCall"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:background="#CC0000"
         android:orientation="vertical" >
 
         <ImageView
             android:id="@+id/imgPhone"
             android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:layout_gravity="center_horizontal|center_vertical"
             android:contentDescription="@string/contentImg"
             android:src="@drawable/ic_action_call" />

@@ -36,13 +36,11 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends android.support.v4.app.FragmentActivity
 		implements LocationListener {
-
-	public MainActivity() {
-	};
 
 	ArrayList<ItemListaBicis> arrayListItem;
 	MainActivity parent = this;
@@ -56,70 +54,7 @@ public class MainActivity extends android.support.v4.app.FragmentActivity
 	ListView lista;
 	LinearLayout btnCall;
 
-	// public View onCreateView(LayoutInflater inflater, ViewGroup container,
-	// Bundle savedInstanceState) {
-	// View rootView = inflater.inflate(R.layout.activity_main, null);
-	//
-	// ActionBar bar = getActionBar();
-	// int morado = Color.rgb(56, 11, 97);
-	// bar.setBackgroundDrawable(new ColorDrawable(morado));
-	// map = ((SupportMapFragment) getSupportFragmentManager()
-	// .findFragmentById(R.id.map)).getMap();
-	// arrayListItem = new ArrayList<ItemListaBicis>();
-	// locationManager = (LocationManager)
-	// getSystemService(Context.LOCATION_SERVICE);
-	//
-	// lista = (ListView)rootView.findViewById(R.id.listaBicis);
-	// btnCall = (LinearLayout) rootView.findViewById(R.id.btnCall);
-	//
-	// Criteria criteria = new Criteria();
-	// provider = locationManager.getBestProvider(criteria, false);
-	// try {
-	// Location location = locationManager.getLastKnownLocation(provider);
-	// if (location != null) {
-	// onLocationChanged(location);
-	// } else {
-	// // FIX crear un metodo unico que obtenga la ultima locacion
-	// // si este llega a fallar, volver a llamar este metodo.
-	// // locacion lo disponible
-	// }
-	// } catch (Exception e) {
-	// Log.w("Error Provider", e.toString());
-	// }
-	//
-	// MapController.cargarMapa(map);
-	// ConseguirDatos();
-	//
-	// btnCall.setOnClickListener(new OnClickListener() {
-	//
-	// @Override
-	// public void onClick(View v) {
-	// Toast.makeText(parent, "pulsando boton call", Toast.LENGTH_SHORT).show();
-	// }
-	// });
-	//
-	// map.setOnInfoWindowClickListener(new OnInfoWindowClickListener() {
-	//
-	// @Override
-	// public void onInfoWindowClick(Marker marker) {
-	// String idmarker = (String) marker.getId();
-	// MapController.goMarkerMap(MainActivity.this,
-	// MapRowActivity.class, json, idmarker);
-	// }
-	// });
-	//
-	// lista.setOnItemClickListener(new OnItemClickListener() {
-	//
-	// @Override
-	// public void onItemClick(AdapterView<?> parent, View view,
-	// int position, long id) {
-	// MapController.goMarkerMap(MainActivity.this,
-	// MapRowActivity.class, json, position);
-	// }
-	// });
-	//
-	// return rootView;
-	// }
+	TextView txtClima;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -135,6 +70,7 @@ public class MainActivity extends android.support.v4.app.FragmentActivity
 
 		lista = (ListView) findViewById(R.id.listaBicis);
 		btnCall = (LinearLayout) findViewById(R.id.btnCall);
+		txtClima = (TextView) findViewById(R.id.txtClima);
 
 		Criteria criteria = new Criteria();
 		provider = locationManager.getBestProvider(criteria, false);
@@ -153,13 +89,16 @@ public class MainActivity extends android.support.v4.app.FragmentActivity
 
 		MapController.cargarMapa(map);
 		ConseguirDatos();
+		aire();
 
 		btnCall.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				Toast.makeText(parent, "pulsando boton call",
-						Toast.LENGTH_SHORT).show();
+//				Toast.makeText(parent, "pulsando boton call",
+//						Toast.LENGTH_SHORT).show();
+				Intent intent = new Intent(parent, EmergencyNumbers.class);
+				startActivity(intent);
 			}
 		});
 
@@ -200,6 +139,32 @@ public class MainActivity extends android.support.v4.app.FragmentActivity
 						Log.w("request", "retry bitch!");
 					}
 
+					@Override
+					public void onFailure(Throwable error) {
+
+						Toast.makeText(
+								getApplicationContext(),
+								"No pudimos recolectar los datos, intenta de nuevo",
+								Toast.LENGTH_LONG).show();
+						Log.e("Error", error.toString());
+					}
+
+				});
+		//Log.e("empezando aire", "asdf");
+		//aire();
+
+	}
+	
+	public void aire(){
+		Log.e("empezando aire", "asdf");
+		AsyncHttpClient cliente = new AsyncHttpClient();
+		cliente.get("http://api.citybik.es/ecobici.json",
+				new AsyncHttpResponseHandler() {
+					@Override
+					public void onSuccess(String response) {
+						 Log.e("JSON", "asf");
+						//lolas(response);
+					}
 				});
 	}
 
@@ -235,7 +200,7 @@ public class MainActivity extends android.support.v4.app.FragmentActivity
 
 			ListaAdapter adapter = new ListaAdapter(parent, arrayListItem);
 			lista.setAdapter(adapter);
-			Log.e("Carga", json.toString());
+			//Log.e("Carga", json.toString());
 
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block

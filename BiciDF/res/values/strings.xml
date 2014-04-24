@@ -24,4 +24,6 @@
         <item>@drawable/ic_action_user</item>
     </array>
 
+    <string name="title_activity_emergency_numbers">EmergencyNumbers</string>
+
 </resources>

@@ -54,9 +54,9 @@ public class NavigationAdapter extends BaseAdapter {
 		if (convertView == null) {
 			view = new Fila();
 			ItemDrawer item = arrayList.get(position);
-			convertView = inflater.inflate(R.layout.item_drawer_list, null);
-			view.titulo_item = (TextView) convertView.findViewById(R.id.txtDrawer);
-			view.img_item = (ImageView) convertView.findViewById(R.id.iconDrawer);
+//			convertView = inflater.inflate(R.layout.item_drawer_list, null);
+//			view.titulo_item = (TextView) convertView.findViewById(R.id.txtDrawer);
+//			view.img_item = (ImageView) convertView.findViewById(R.id.iconDrawer);
 			
 			view.titulo_item.setText(item.getTitulo());
 			view.img_item.setImageResource(item.getIcono());

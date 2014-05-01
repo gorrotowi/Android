@@ -162,8 +162,17 @@ public class MainActivity extends android.support.v4.app.FragmentActivity
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(String response) {
-						 Log.e("JSON", "asf");
-						//lolas(response);
+					 Log.e("JSON", response);
+						try {
+							JSONArray jsona = new JSONArray(response);
+							JSONObject jsonobj = jsona.getJSONObject(1);
+							Log.e("jsonobj", jsonobj.toString());
+							String condicion = jsonobj.getString("condicion");
+							txtClima.setText(condicion);
+						} catch (JSONException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 					}
 				});
 	}

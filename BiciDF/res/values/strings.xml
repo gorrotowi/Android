@@ -25,5 +25,6 @@
     </array>
 
     <string name="title_activity_emergency_numbers">EmergencyNumbers</string>
+    <string name="title_activity_edit_user">EditUser</string>
 
 </resources>

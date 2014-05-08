@@ -2,18 +2,26 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:background="#E6E6E6"
     android:orientation="vertical" >
+    
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/card">
 
     <fragment
         android:id="@+id/map"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginTop="5dp"
-        android:layout_weight="1"
+        android:layout_height="150dp"
         class="com.google.android.gms.maps.SupportMapFragment" />
+    
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,7 +29,6 @@
         android:layout_marginBottom="5dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="5dp"
         android:background="#7401DF" >
     </LinearLayout>
 
@@ -63,10 +70,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_weight="10"
-        android:divider="#424242"
+        android:divider="#E6E6E6"
         android:scrollbars="none" >
     </ListView>
 

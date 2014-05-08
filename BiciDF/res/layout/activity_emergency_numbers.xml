@@ -2,220 +2,254 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F2F2F2"
+    android:background="#E6E6E6"
     android:paddingBottom="5dp"
     android:paddingLeft="5dp"
     android:paddingRight="5dp"
     android:paddingTop="5dp" >
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#FAFAFA"
-        android:orientation="vertical" >
+        android:layout_height="wrap_content" >
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="15dp"
-            android:textColor="#31B404"
-            android:textSize="25sp"
-            android:text="Ecobici" />
-        
-        <LinearLayout 
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="ecobici"
-            android:orientation="horizontal">
-            
-            <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="30dp"
-            android:layout_weight="5"
-            android:textColor="#2E2E2E"
-            android:textSize="20sp"
-            android:text="5005.BICI (2424)" />
-            
-            <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:contentDescription="@string/contentImg"
-            android:layout_marginRight="30dp"
-            android:layout_weight="1"
-            android:src="@drawable/item_arrow" />
-            
-        </LinearLayout>
-        
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="10dp"
-            android:textColor="#B40404"
-            android:textSize="25sp"
-            android:text="Bomberos" />
-        
-        <LinearLayout 
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="bomberos"
-            android:orientation="horizontal">
-            
-            <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="30dp"
-            android:layout_weight="5"
-            android:textColor="#2E2E2E"
-            android:textSize="20sp"
-            android:text="068" />
-            
-            <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:contentDescription="@string/contentImg"
-            android:layout_marginRight="30dp"
-            android:layout_weight="1"
-            android:src="@drawable/item_arrow" />
-            
-        </LinearLayout>
-        
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="10dp"
-            android:textColor="#08298A"
-            android:textSize="25sp"
-            android:text="Policia" />
-        
-        <LinearLayout 
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="policia"
-            android:orientation="horizontal">
-            
-            <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="30dp"
-            android:layout_weight="5"
-            android:textColor="#2E2E2E"
-            android:textSize="20sp"
-            android:text="060" />
-            
-            <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:contentDescription="@string/contentImg"
-            android:layout_marginRight="30dp"
-            android:layout_weight="1"
-            android:src="@drawable/item_arrow" />
-            
-        </LinearLayout>
-        
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="10dp"
-            android:textColor="#DF3A01"
-            android:textSize="25sp"
-            android:text="Cruz Roja" />
-        
-        <LinearLayout 
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="CruzR"
-            android:orientation="horizontal">
-            
-            <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="30dp"
-            android:layout_weight="5"
-            android:textColor="#2E2E2E"
-            android:textSize="20sp"
-            android:text="55 57 57 57" />
-            
-            <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:contentDescription="@string/contentImg"
-            android:layout_marginRight="30dp"
-            android:layout_weight="1"
-            android:src="@drawable/item_arrow" />
-            
-        </LinearLayout>
-        
-        <LinearLayout 
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="CruzR2"
-            android:orientation="horizontal">
-            
-            <TextView
-                android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="#E6E6E6"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="30dp"
+                android:background="@drawable/card"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:text="Ecobici"
+                    android:textColor="#31B404"
+                    android:textSize="25sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="ecobici"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="30dp"
+                        android:layout_weight="5"
+                        android:text="5005.BICI (2424)"
+                        android:textColor="#2E2E2E"
+                        android:textSize="20sp" />
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginRight="30dp"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/contentImg"
+                        android:src="@drawable/item_arrow" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
                 android:layout_marginTop="5dp"
-                android:layout_weight="5"
-                android:text="53 95 11 11"
-                android:textColor="#2E2E2E"
-                android:textSize="20sp" />
-            
-            <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:contentDescription="@string/contentImg"
-            android:layout_marginRight="30dp"
-            android:layout_weight="1"
-            android:src="@drawable/item_arrow" />
-            
+                android:background="@drawable/card"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:text="Bomberos"
+                    android:textColor="#B40404"
+                    android:textSize="25sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="bomberos"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="30dp"
+                        android:layout_weight="5"
+                        android:text="068"
+                        android:textColor="#2E2E2E"
+                        android:textSize="20sp" />
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginRight="30dp"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/contentImg"
+                        android:src="@drawable/item_arrow" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/card"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:text="Policia"
+                    android:textColor="#08298A"
+                    android:textSize="25sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="policia"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="30dp"
+                        android:layout_weight="5"
+                        android:text="060"
+                        android:textColor="#2E2E2E"
+                        android:textSize="20sp" />
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginRight="30dp"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/contentImg"
+                        android:src="@drawable/item_arrow" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/card"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:text="Cruz Roja"
+                    android:textColor="#DF3A01"
+                    android:textSize="25sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="CruzR"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="30dp"
+                        android:layout_weight="5"
+                        android:text="55 57 57 57"
+                        android:textColor="#2E2E2E"
+                        android:textSize="20sp" />
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginRight="30dp"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/contentImg"
+                        android:src="@drawable/item_arrow" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="CruzR2"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="5"
+                        android:text="53 95 11 11"
+                        android:textColor="#2E2E2E"
+                        android:textSize="20sp" />
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginRight="30dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/contentImg"
+                        android:src="@drawable/item_arrow" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/card"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:text="Proteccion Civil"
+                    android:textColor="#240B3B"
+                    android:textSize="25sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="proteccionCiv"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="30dp"
+                        android:layout_weight="5"
+                        android:text="56 83 22 22"
+                        android:textColor="#2E2E2E"
+                        android:textSize="20sp" />
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginRight="30dp"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/contentImg"
+                        android:src="@drawable/item_arrow" />
+                </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
-        
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="15dp"
-            android:textColor="#240B3B"
-            android:textSize="25sp"
-            android:text="Proteccion Civil" />
-        
-        <LinearLayout 
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="proteccionCiv"
-            android:orientation="horizontal">
-            
-            <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="30dp"
-            android:layout_weight="5"
-            android:textColor="#2E2E2E"
-            android:textSize="20sp"
-            android:text="56 83 22 22" />
-            
-            <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:contentDescription="@string/contentImg"
-            android:layout_marginRight="30dp"
-            android:layout_weight="1"
-            android:src="@drawable/item_arrow" />
-            
-        </LinearLayout>
-        
-    </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>

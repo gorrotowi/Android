@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FAFAFA"
+    android:background="#E6E6E6"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -11,7 +11,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#FAFAFA" >
+        android:background="#E6E6E6" >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -21,7 +21,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#FAFAFA"
+                android:background="@drawable/card"
                 android:orientation="horizontal" >
 
                 <ImageView
@@ -41,7 +41,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="50"
-                    android:background="#FAFAFA"
+                    android:background="#FFF"
                     android:orientation="vertical" >
 
                     <LinearLayout
@@ -49,7 +49,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="15dp"
                         android:layout_marginTop="15dp"
-                        android:background="#FAFAFA"
+                        android:background="#FFF"
                         android:orientation="vertical" >
 
                         <TextView
@@ -69,76 +69,84 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Informacion"
-                android:textColor="@android:color/black"
-                android:textSize="23sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:background="@drawable/card"
                 android:layout_marginTop="10dp"
-                android:text="Domicilio"
-                android:textColor="@android:color/black"
-                android:textSize="18sp" />
+                android:orientation="vertical" >
 
-            <TextView
-                android:id="@+id/txtDomicilio"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Calle 23..."
-                android:textSize="15sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Informacion"
+                    android:textColor="@android:color/black"
+                    android:textSize="23sp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Edad"
-                android:textColor="@android:color/black"
-                android:textSize="18sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Domicilio"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
 
-            <TextView
-                android:id="@+id/txtEdad"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="+18"
-                android:textSize="15sp" />
+                <TextView
+                    android:id="@+id/txtDomicilio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Calle 23..."
+                    android:textSize="15sp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Tipo de sangre"
-                android:textColor="@android:color/black"
-                android:textSize="18sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Edad"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
 
-            <TextView
-                android:id="@+id/txtSangre"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="O+"
-                android:textSize="15sp" />
+                <TextView
+                    android:id="@+id/txtEdad"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="+18"
+                    android:textSize="15sp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Numero de emergencia"
-                android:textColor="@android:color/black"
-                android:textSize="18sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Tipo de sangre"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
 
-            <TextView
-                android:id="@+id/txtNumEmerg"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="55555555"
-                android:textSize="15sp" />
+                <TextView
+                    android:id="@+id/txtSangre"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="O+"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Numero de emergencia"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/txtNumEmerg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="55555555"
+                    android:textSize="15sp" />
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 

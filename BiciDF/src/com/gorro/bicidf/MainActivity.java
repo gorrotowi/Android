@@ -54,12 +54,16 @@ public class MainActivity extends android.support.v4.app.FragmentActivity
 	ListView lista;
 	LinearLayout btnCall;
 
+	String UrlBici = "http://api.citybik.es/ecobici.json";
+	String UrlAire = "http://datos.labplc.mx/aire.json";
+
 	TextView txtClima;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+
 		ActionBar bar = getActionBar();
 		int morado = Color.rgb(56, 11, 97);
 		bar.setBackgroundDrawable(new ColorDrawable(morado));
@@ -89,14 +93,14 @@ public class MainActivity extends android.support.v4.app.FragmentActivity
 
 		MapController.cargarMapa(map);
 		ConseguirDatos();
-		aire();
+		// aire();
 
 		btnCall.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-//				Toast.makeText(parent, "pulsando boton call",
-//						Toast.LENGTH_SHORT).show();
+				// Toast.makeText(parent, "pulsando boton call",
+				// Toast.LENGTH_SHORT).show();
 				Intent intent = new Intent(parent, EmergencyNumbers.class);
 				startActivity(intent);
 			}
@@ -125,13 +129,32 @@ public class MainActivity extends android.support.v4.app.FragmentActivity
 	}
 
 	public void ConseguirDatos() {
+
+		// StringRequest biciRequest = new StringRequest(UrlBici, new
+		// Listener<String>() {
+		//
+		// @Override
+		// public void onResponse(String response) {
+		// parseoDeDatosBici(response);
+		// }
+		// }, new ErrorListener() {
+		//
+		// @Override
+		// public void onErrorResponse(VolleyError error) {
+		// // TODO Auto-generated method stub
+		//
+		// }
+		// });
+		//
+		// queue.add(biciRequest);
+
 		AsyncHttpClient cliente = new AsyncHttpClient();
 		cliente.get("http://api.citybik.es/ecobici.json",
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(String response) {
 						// Log.e("JSON", response);
-						lolas(response);
+						parseoDeDatosBici(response);
 					}
 
 					@Override
@@ -150,34 +173,40 @@ public class MainActivity extends android.support.v4.app.FragmentActivity
 					}
 
 				});
-		//Log.e("empezando aire", "asdf");
-		//aire();
+		aire();
 
 	}
-	
-	public void aire(){
+
+	public void aire() {
 		Log.e("empezando aire", "asdf");
 		AsyncHttpClient cliente = new AsyncHttpClient();
-		cliente.get("http://api.citybik.es/ecobici.json",
-				new AsyncHttpResponseHandler() {
-					@Override
-					public void onSuccess(String response) {
-					 Log.e("JSON", response);
-						try {
-							JSONArray jsona = new JSONArray(response);
-							JSONObject jsonobj = jsona.getJSONObject(1);
-							Log.e("jsonobj", jsonobj.toString());
-							String condicion = jsonobj.getString("condicion");
-							txtClima.setText(condicion);
-						} catch (JSONException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
+		cliente.get(UrlAire, new AsyncHttpResponseHandler() {
+			@Override
+			public void onSuccess(String response) {
+
+				if (response.equals("Demasiadas solicitudes")) {
+					Toast.makeText(MainActivity.this,
+							"No pudimos obtener el aire, intena de nuevo",
+							Toast.LENGTH_SHORT).show();
+				} else {
+
+					try {
+						JSONObject objJson = new JSONObject(response);
+						JSONObject consulta = objJson.getJSONObject("consulta");
+						JSONObject clima = consulta.getJSONObject("clima");
+						String climaString = clima.getString("condicion");
+						txtClima.setText(climaString);
+
+					} catch (JSONException e) {
+						// e.printStackTrace();
+						Log.e("error aire", e.toString());
 					}
-				});
+				}
+			}
+		});
 	}
 
-	protected void lolas(String response) {
+	protected void parseoDeDatosBici(String response) {
 		try {
 			json = new JSONArray(response);
 			arrayListItem.clear();
@@ -209,7 +238,7 @@ public class MainActivity extends android.support.v4.app.FragmentActivity
 
 			ListaAdapter adapter = new ListaAdapter(parent, arrayListItem);
 			lista.setAdapter(adapter);
-			//Log.e("Carga", json.toString());
+			// Log.e("Carga", json.toString());
 
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block

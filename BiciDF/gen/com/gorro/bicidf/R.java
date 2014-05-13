@@ -251,14 +251,14 @@ containing a value of this type.
     }
     public static final class id {
         public static final int UserImg=0x7f060012;
-        public static final int action_edit=0x7f060023;
-        public static final int action_save=0x7f060020;
-        public static final int action_settings=0x7f06001f;
+        public static final int action_edit=0x7f060024;
+        public static final int action_save=0x7f060021;
+        public static final int action_settings=0x7f060020;
         public static final int btnCall=0x7f06000f;
-        public static final int btnCancelar=0x7f06001d;
-        public static final int btnIniciar=0x7f06001e;
-        public static final int dialogPass=0x7f06001c;
-        public static final int dialogUser=0x7f06001b;
+        public static final int btnCancelar=0x7f06001e;
+        public static final int btnIniciar=0x7f06001f;
+        public static final int dialogPass=0x7f06001d;
+        public static final int dialogUser=0x7f06001c;
         public static final int edtDomicilio=0x7f060007;
         public static final int edtEdad=0x7f060008;
         public static final int edtNombre=0x7f060006;
@@ -273,19 +273,20 @@ containing a value of this type.
         public static final int mapRowItem=0x7f060011;
         public static final int none=0x7f060000;
         public static final int normal=0x7f060001;
-        public static final int refreshData=0x7f060021;
+        public static final int refreshData=0x7f060022;
         public static final int satellite=0x7f060002;
         public static final int terrain=0x7f060003;
         public static final int txtClima=0x7f06000d;
-        public static final int txtDisp=0x7f060019;
+        public static final int txtDisp=0x7f06001a;
+        public static final int txtDistancia=0x7f060019;
         public static final int txtDomicilio=0x7f060014;
         public static final int txtEdad=0x7f060015;
         public static final int txtEstacion=0x7f060018;
-        public static final int txtLugLib=0x7f06001a;
+        public static final int txtLugLib=0x7f06001b;
         public static final int txtNombreUsr=0x7f060013;
         public static final int txtNumEmerg=0x7f060017;
         public static final int txtSangre=0x7f060016;
-        public static final int userData=0x7f060022;
+        public static final int userData=0x7f060023;
     }
     public static final class integer {
         public static final int google_play_services_version=0x7f080000;

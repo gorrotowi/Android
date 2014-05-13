@@ -13,15 +13,33 @@
         android:background="#FFF"
         android:orientation="vertical" >
 
-        <TextView
-            android:id="@+id/txtEstacion"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="5dp"
-            android:text="@string/hello_world"
-            android:textColor="#380B61"
-            android:textSize="15sp" />
+            android:layout_weight="1"
+            android:background="#FFF"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/txtEstacion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:text="@string/hello_world"
+                android:textColor="#380B61"
+                android:textSize="15sp" />
+            
+            <TextView
+                android:id="@+id/txtDistancia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="@string/hello_world"
+                android:textColor="#380BDF"
+                android:textSize="15sp" />
+            
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -38,8 +56,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/txtVDisp"
                     android:layout_marginLeft="5dp"
+                    android:text="@string/txtVDisp"
                     android:textColor="#424242"
                     android:textSize="12sp" />
 
@@ -81,15 +99,15 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="20dp"
         android:layout_weight="6"
         android:orientation="vertical" >
 
         <ImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:contentDescription="@string/contentImg"
             android:layout_gravity="center_vertical|center_horizontal"
+            android:contentDescription="@string/contentImg"
             android:src="@drawable/item_arrow" />
     </LinearLayout>
 

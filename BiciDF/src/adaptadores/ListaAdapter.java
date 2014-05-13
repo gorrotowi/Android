@@ -52,10 +52,12 @@ public class ListaAdapter extends BaseAdapter {
 		TextView txtTitulo = (TextView) rowList.findViewById(R.id.txtEstacion);
 		TextView txtDisp = (TextView) rowList.findViewById(R.id.txtDisp);
 		TextView txtLib = (TextView) rowList.findViewById(R.id.txtLugLib);
+		TextView txtDis = (TextView) rowList.findViewById(R.id.txtDistancia);
 		
 		txtTitulo.setText(listArrayItem.get(position).getNombreEst());
 		txtDisp.setText(listArrayItem.get(position).getDisponibles());
 		txtLib.setText(listArrayItem.get(position).getLugaresLib());
+		txtDis.setText(listArrayItem.get(position).getDistancia());
 		//Log.i("Arrow Position", position+"");
 
 		return rowList;

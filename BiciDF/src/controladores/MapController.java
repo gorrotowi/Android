@@ -39,6 +39,17 @@ public enum MapController {
 		map.animateCamera(camUpd);
 
 	}
+	
+	public static void cargarMapa(GoogleMap map, double lat, double lon) {
+
+		map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+		LatLng locacion = new LatLng(lat, lon);
+		CameraPosition camPos = new CameraPosition.Builder().target(locacion)
+				.zoom(14).build();
+		CameraUpdate camUpd = CameraUpdateFactory.newCameraPosition(camPos);
+		map.animateCamera(camUpd);
+
+	}
 
 	public static void crearMarcadorItem(GoogleMap map, String nombre,
 			String bike, String free, double lat, double lon, Boolean icono) {
@@ -72,7 +83,7 @@ public enum MapController {
 	}
 
 	public static void goMarkerMap(Context context, Class<?> cls,
-			JSONArray json, int i) {
+			JSONArray json, int i, double deviceLat, double deviceLon) {
 		try {
 			JSONObject jsonO = json.getJSONObject(i);
 			double lat = Integer.parseInt(jsonO.getString("lat")) / 1E6;
@@ -83,6 +94,8 @@ public enum MapController {
 			intent.putExtra("free", jsonO.getString("free"));
 			intent.putExtra("latitud", lat);
 			intent.putExtra("longitud", lon);
+			intent.putExtra("latitudDevice", deviceLat);
+			intent.putExtra("longitudDevice", deviceLon);
 			context.startActivity(intent);
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
@@ -91,7 +104,7 @@ public enum MapController {
 	}
 
 	public static void goMarkerMap(Context context, Class<?> cls,
-			JSONArray json, String id) {
+			JSONArray json, String id, double deviceLat, double deviceLon) {
 		Intent intent = new Intent(context, cls);
 		JSONObject jsonO;
 		try {
@@ -107,6 +120,8 @@ public enum MapController {
 					intent.putExtra("free", jsonO.getString("free"));
 					intent.putExtra("latitud", lat);
 					intent.putExtra("longitud", lon);
+					intent.putExtra("latitudDevice", deviceLat);
+					intent.putExtra("longitudDevice", deviceLon);
 				}
 
 			}

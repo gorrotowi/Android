@@ -1,5 +1,6 @@
 package com.gorro.bicidf;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import org.json.JSONArray;
@@ -47,12 +48,16 @@ public class MainActivity extends android.support.v4.app.FragmentActivity
 	double miLat;
 	double miLon;
 	GoogleMap map;
+
 	private LocationManager locationManager;
 	private String provider;
+
 	private JSONObject jsonO;
 	private JSONArray json;
 	ListView lista;
 	LinearLayout btnCall;
+	
+	DecimalFormat df;
 
 	String UrlBici = "http://api.citybik.es/ecobici.json";
 	String UrlAire = "http://datos.labplc.mx/aire.json";
@@ -75,6 +80,8 @@ public class MainActivity extends android.support.v4.app.FragmentActivity
 		lista = (ListView) findViewById(R.id.listaBicis);
 		btnCall = (LinearLayout) findViewById(R.id.btnCall);
 		txtClima = (TextView) findViewById(R.id.txtClima);
+		
+		df = new DecimalFormat("#.##");
 
 		Criteria criteria = new Criteria();
 		provider = locationManager.getBestProvider(criteria, false);
@@ -83,7 +90,7 @@ public class MainActivity extends android.support.v4.app.FragmentActivity
 			if (location != null) {
 				onLocationChanged(location);
 			} else {
-				// FIX crear un metodo unico que obtenga la ultima locacion
+				// TODO crear un metodo unico que obtenga la ultima locacion
 				// si este llega a fallar, volver a llamar este metodo.
 				// locacion lo disponible
 			}
@@ -91,7 +98,7 @@ public class MainActivity extends android.support.v4.app.FragmentActivity
 			Log.w("Error Provider", e.toString());
 		}
 
-		MapController.cargarMapa(map);
+		MapController.cargarMapa(map, miLat, miLon);
 		ConseguirDatos();
 		// aire();
 
@@ -112,7 +119,7 @@ public class MainActivity extends android.support.v4.app.FragmentActivity
 			public void onInfoWindowClick(Marker marker) {
 				String idmarker = (String) marker.getId();
 				MapController.goMarkerMap(MainActivity.this,
-						MapRowActivity.class, json, idmarker);
+						MapRowActivity.class, json, idmarker, miLat, miLon);
 			}
 		});
 
@@ -122,14 +129,14 @@ public class MainActivity extends android.support.v4.app.FragmentActivity
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				MapController.goMarkerMap(MainActivity.this,
-						MapRowActivity.class, json, position);
+						MapRowActivity.class, json, position, miLat, miLon);
 			}
 		});
 
 	}
 
 	public void ConseguirDatos() {
-		
+
 		AsyncHttpClient cliente = new AsyncHttpClient();
 		cliente.get("http://api.citybik.es/ecobici.json",
 				new AsyncHttpResponseHandler() {
@@ -213,7 +220,9 @@ public class MainActivity extends android.support.v4.app.FragmentActivity
 																				// punto
 																				// decimal
 				double lon = Integer.parseInt(jsonO.getString("lng")) / 1E6;
-				arrayListItem.add(new ItemListaBicis(name, bicis, freePlace));
+				String distancia ="Distancia: "+ df.format(calcularDistancia(lat, lon, miLat, miLon))+" Metros";
+				//Log.e("Distancia", distancia);
+				arrayListItem.add(new ItemListaBicis(name, bicis, freePlace, distancia));
 				MapController.crearMarcador(map, name, lat, lon, true);
 
 			}
@@ -228,11 +237,11 @@ public class MainActivity extends android.support.v4.app.FragmentActivity
 		}
 	}
 
-	// @Override
-	// protected void onResume() {
-	// super.onResume();
-	// locationManager.requestLocationUpdates(provider, 400, 1, this);
-	// }
+	@Override
+	protected void onResume() {
+		super.onResume();
+		locationManager.requestLocationUpdates(provider, 6000, 1, this);
+	}
 
 	@Override
 	protected void onPause() {
@@ -245,6 +254,7 @@ public class MainActivity extends android.support.v4.app.FragmentActivity
 		miLat = (double) (location.getLatitude());
 		miLon = (double) (location.getLongitude());
 		MapController.crearMarcador(map, "Estas aqui", miLat, miLon, false);
+		MapController.cargarMapa(map, miLat, miLon);
 	}
 
 	@Override
@@ -285,6 +295,20 @@ public class MainActivity extends android.support.v4.app.FragmentActivity
 		}
 
 		return super.onOptionsItemSelected(item);
+	}
+
+	public double calcularDistancia(double latIni, double lonIni,
+			double latFin, double lonFin) {
+		double desLat = Math.toRadians(latFin - latIni);
+		double desLon = Math.toRadians(lonFin - lonIni);
+		double a = Math.sin(desLat / 2) * Math.sin(desLat / 2)
+				+ Math.cos(Math.toRadians(latIni))
+				* Math.cos(Math.toRadians(latFin)) * Math.sin(desLon / 2)
+				* Math.sin(desLon / 2);
+		double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+		double result = (c * 6378.1) *1000;
+		//result = Double.valueOf(df.format(result));
+		return result;
 	}
 
 }

@@ -9,9 +9,9 @@
     <string name="vacio">-</string>
     <string name="txtEspLib">Lugares libres: </string>
     <string name="contentImg"></string>
-    <string name="title_activity_map_row">MapRowActivity</string>
+    <string name="title_activity_map_row">Mapa</string>
     <string name="title_activity_drawer">DrawerActivity</string>
-    <string name="title_activity_user">User</string>
+    <string name="title_activity_user">Usuario</string>
     <string name="nameString">Nombre</string>
 
     <string-array name="nav_options">
@@ -24,7 +24,7 @@
         <item>@drawable/ic_action_user</item>
     </array>
 
-    <string name="title_activity_emergency_numbers">EmergencyNumbers</string>
-    <string name="title_activity_edit_user">EditUser</string>
+    <string name="title_activity_emergency_numbers">Numeros de emergencia</string>
+    <string name="title_activity_edit_user">Usuario</string>
 
 </resources>

@@ -9,82 +9,103 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.gorro.bicidf.EditUser$PlaceholderFragment" >
 
-    <LinearLayout 
+    <LinearLayout
+        android:id="@+id/linearLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/card"
-        android:orientation="vertical">
-        
-        <TextView 
+        android:orientation="vertical" >
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#000"
             android:text="Nombre"
-            android:textSize="20sp"/>
-        
-        <EditText 
+            android:textColor="#000"
+            android:textSize="20sp" />
+
+        <EditText
             android:id="@+id/edtNombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:cursorVisible="true"
             android:inputType="text"
-            android:textColor="#000"/>
-        
-        <TextView 
+            android:textColor="#000" />
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#000"
             android:text="Domicilio"
-            android:textSize="20sp"/>
-        
-        <EditText 
+            android:textColor="#000"
+            android:textSize="20sp" />
+
+        <EditText
             android:id="@+id/edtDomicilio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
-            android:textColor="#000"/>
-        
-        <TextView 
+            android:textColor="#000" />
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#000"
             android:text="Edad"
-            android:textSize="20sp"/>
-        
-        <EditText 
+            android:textColor="#000"
+            android:textSize="20sp" />
+
+        <EditText
             android:id="@+id/edtEdad"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
-            android:textColor="#000"/>
-        
-        <TextView 
+            android:textColor="#000" />
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#000"
             android:text="Tipo de sangre"
-            android:textSize="20sp"/>
-        
-        <EditText 
+            android:textColor="#000"
+            android:textSize="20sp" />
+
+        <EditText
             android:id="@+id/edtSangre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
-            android:textColor="#000"/>
-        
-        <TextView 
+            android:textColor="#000" />
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#000"
             android:text="Numero de emergencia"
-            android:textSize="20sp"/>
-        
-        <EditText 
+            android:textColor="#000"
+            android:textSize="20sp" />
+
+        <EditText
             android:id="@+id/edtNumEme"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="phone"
-            android:textColor="#000"/>
-        
+            android:textColor="#000" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/iniciarSesionBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/linearLayout1"
+        android:layout_below="@+id/linearLayout1"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/cardsession"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal|center_vertical"
+            android:layout_gravity="center"
+            android:text="Iniciar Sesion"
+            android:textColor="#FFF" />
+
     </LinearLayout>
 
 </RelativeLayout>

@@ -129,25 +129,7 @@ public class MainActivity extends android.support.v4.app.FragmentActivity
 	}
 
 	public void ConseguirDatos() {
-
-		// StringRequest biciRequest = new StringRequest(UrlBici, new
-		// Listener<String>() {
-		//
-		// @Override
-		// public void onResponse(String response) {
-		// parseoDeDatosBici(response);
-		// }
-		// }, new ErrorListener() {
-		//
-		// @Override
-		// public void onErrorResponse(VolleyError error) {
-		// // TODO Auto-generated method stub
-		//
-		// }
-		// });
-		//
-		// queue.add(biciRequest);
-
+		
 		AsyncHttpClient cliente = new AsyncHttpClient();
 		cliente.get("http://api.citybik.es/ecobici.json",
 				new AsyncHttpResponseHandler() {

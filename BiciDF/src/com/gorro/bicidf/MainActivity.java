@@ -118,8 +118,13 @@ public class MainActivity extends android.support.v4.app.FragmentActivity
 			@Override
 			public void onInfoWindowClick(Marker marker) {
 				String idmarker = (String) marker.getId();
+				Log.e("Mi marker", idmarker);
+				if (idmarker.equals("m275")) {
+					Log.e("pisando mi marcador", idmarker);
+				}else{
 				MapController.goMarkerMap(MainActivity.this,
 						MapRowActivity.class, json, idmarker, miLat, miLon);
+				}
 			}
 		});
 

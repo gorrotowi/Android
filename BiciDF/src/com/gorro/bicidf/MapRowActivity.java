@@ -79,7 +79,7 @@ public class MapRowActivity extends android.support.v4.app.FragmentActivity {
         @Override
         protected void onPreExecute() {
               Dialog = new ProgressDialog(MapRowActivity.this);
-              Dialog.setMessage("Loading route...");
+              Dialog.setMessage("Cargando ruta...");
               Dialog.show();
         }
 

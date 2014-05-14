@@ -13,6 +13,7 @@
     <string name="title_activity_drawer">DrawerActivity</string>
     <string name="title_activity_user">Usuario</string>
     <string name="nameString">Nombre</string>
+    <string name="errorEditx">Llena el campo</string>
 
     <string-array name="nav_options">
         <item>Mapa</item>

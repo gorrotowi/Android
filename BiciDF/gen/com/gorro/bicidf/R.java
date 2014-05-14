@@ -407,37 +407,38 @@ containing a value of this type.
          */
         public static final int common_signin_button_text_long=0x7f070013;
         public static final int contentImg=0x7f070022;
+        public static final int errorEditx=0x7f070027;
         public static final int hello_world=0x7f07001e;
         /**  Location client code resources (prefix with location_client) 
          */
         public static final int location_client_powered_by_google=0x7f07001a;
         public static final int nameString=0x7f070026;
-        public static final int pref_default_display_name=0x7f07002e;
-        public static final int pref_description_social_recommendations=0x7f07002c;
+        public static final int pref_default_display_name=0x7f07002f;
+        public static final int pref_description_social_recommendations=0x7f07002d;
         /**  Example settings for Data & Sync 
          */
-        public static final int pref_header_data_sync=0x7f070030;
+        public static final int pref_header_data_sync=0x7f070031;
         /**  Strings related to Settings 
  Example General settings 
          */
-        public static final int pref_header_general=0x7f07002a;
+        public static final int pref_header_general=0x7f07002b;
         /**  Example settings for Notifications 
          */
-        public static final int pref_header_notifications=0x7f070033;
-        public static final int pref_ringtone_silent=0x7f070036;
-        public static final int pref_title_add_friends_to_messages=0x7f07002f;
-        public static final int pref_title_display_name=0x7f07002d;
-        public static final int pref_title_new_message_notifications=0x7f070034;
-        public static final int pref_title_ringtone=0x7f070035;
-        public static final int pref_title_social_recommendations=0x7f07002b;
-        public static final int pref_title_sync_frequency=0x7f070031;
-        public static final int pref_title_system_sync_settings=0x7f070032;
-        public static final int pref_title_vibrate=0x7f070037;
+        public static final int pref_header_notifications=0x7f070034;
+        public static final int pref_ringtone_silent=0x7f070037;
+        public static final int pref_title_add_friends_to_messages=0x7f070030;
+        public static final int pref_title_display_name=0x7f07002e;
+        public static final int pref_title_new_message_notifications=0x7f070035;
+        public static final int pref_title_ringtone=0x7f070036;
+        public static final int pref_title_social_recommendations=0x7f07002c;
+        public static final int pref_title_sync_frequency=0x7f070032;
+        public static final int pref_title_system_sync_settings=0x7f070033;
+        public static final int pref_title_vibrate=0x7f070038;
         public static final int title_activity_drawer=0x7f070024;
-        public static final int title_activity_edit_user=0x7f070028;
-        public static final int title_activity_emergency_numbers=0x7f070027;
+        public static final int title_activity_edit_user=0x7f070029;
+        public static final int title_activity_emergency_numbers=0x7f070028;
         public static final int title_activity_map_row=0x7f070023;
-        public static final int title_activity_perfil=0x7f070029;
+        public static final int title_activity_perfil=0x7f07002a;
         public static final int title_activity_user=0x7f070025;
         public static final int txtEspLib=0x7f070021;
         public static final int txtVDisp=0x7f07001f;

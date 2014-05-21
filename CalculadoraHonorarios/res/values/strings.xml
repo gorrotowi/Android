@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Calculadora Honorarios</string>
+    <string name="action_settings">Settings</string>
+    <string name="introduce">Introduce el total deseado:</string>
+    <string name="iva">IVA (16%)</string>
+    <string name="subtotal">Subtotal</string>
+    <string name="retIva">Retención IVA</string>
+    <string name="retISR">Retención ISR (10%)</string>
+    <string name="total">Total</string>
+    <string name="zero">$0</string>
+    <string name="moneySimbol">$</string>
+    <string name="importe">Importe</string>
+    <string name="contentImg"></string>
+    <string name="descrip">Esta calculadora te servira para poder obtener el iva, el ISR, el subtotal y el IVA retenido, datos importantes cuando estas haciendo tus recibos (comprobantes) de honorarios.</string>
+	<string name="nota">NOTA:</string>
+	<string name="notaDes">Recuerda que esta calculadora solo sirve para personas fisicas que hacen recibos a personas morales.</string>
+    <string name="speechCantidad">Dime la cantidad que quieres calcular</string>
+    <string name="noDisp">No disponible</string>
+    <string name="noSoftInstall">Software de reconocimiento no instalado. Descargar?</string>
+    <string name="no">no</string>
+    <string name="si">si</string>
+    <string name="operacionCandelada">Operacion cancelada</string>
+	
+</resources>

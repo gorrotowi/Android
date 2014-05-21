@@ -19,6 +19,8 @@ import controladores.MapController;
 
 import adaptadores.ListaAdapter;
 import android.app.ActionBar;
+import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -142,6 +144,10 @@ public class MainActivity extends android.support.v4.app.FragmentActivity
 
 	public void ConseguirDatos() {
 
+		final ProgressDialog progress;
+		progress = new ProgressDialog(MainActivity.this);
+		progress.setMessage("Obteniendo datos... ;)");
+		progress.show();
 		AsyncHttpClient cliente = new AsyncHttpClient();
 		cliente.get("http://api.citybik.es/ecobici.json",
 				new AsyncHttpResponseHandler() {
@@ -158,13 +164,16 @@ public class MainActivity extends android.support.v4.app.FragmentActivity
 
 					@Override
 					public void onFailure(Throwable error) {
-
+						
+						progress.dismiss();
 						Toast.makeText(
 								getApplicationContext(),
 								"No pudimos recolectar los datos, intenta de nuevo",
 								Toast.LENGTH_LONG).show();
 						Log.e("Error", error.toString());
 					}
+					
+					
 
 				});
 		aire();
@@ -225,9 +234,12 @@ public class MainActivity extends android.support.v4.app.FragmentActivity
 																				// punto
 																				// decimal
 				double lon = Integer.parseInt(jsonO.getString("lng")) / 1E6;
-				String distancia ="Distancia: "+ df.format(calcularDistancia(lat, lon, miLat, miLon))+" Metros";
-				//Log.e("Distancia", distancia);
-				arrayListItem.add(new ItemListaBicis(name, bicis, freePlace, distancia));
+				double dist = calcularDistancia(lat, lon, miLat, miLon);
+				//if (dist <= 3000) {
+					String distancia ="Distancia: "+ df.format(dist)+" Metros";//calcularDistancia(lat, lon, miLat, miLon))+" Metros";
+					arrayListItem.add(new ItemListaBicis(name, bicis, freePlace, distancia));
+				//}
+				
 				MapController.crearMarcador(map, name, lat, lon, true);
 
 			}

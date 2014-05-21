@@ -16,7 +16,7 @@ public class ListaAdapter extends BaseAdapter {
 
 	private Context context;
 	private ArrayList<ItemListaBicis> listArrayItem;
-
+	
 	public ListaAdapter(Context context, ArrayList<ItemListaBicis> listItem) {
 		this.context = context;
 		this.listArrayItem = listItem;

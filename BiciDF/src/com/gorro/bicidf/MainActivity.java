@@ -58,13 +58,14 @@ public class MainActivity extends android.support.v4.app.FragmentActivity
 	private JSONArray json;
 	ListView lista;
 	LinearLayout btnCall;
-	
+
 	DecimalFormat df;
 
 	String UrlBici = "http://api.citybik.es/ecobici.json";
 	String UrlAire = "http://datos.labplc.mx/aire.json";
 
 	TextView txtClima;
+	ProgressDialog progress;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -82,7 +83,10 @@ public class MainActivity extends android.support.v4.app.FragmentActivity
 		lista = (ListView) findViewById(R.id.listaBicis);
 		btnCall = (LinearLayout) findViewById(R.id.btnCall);
 		txtClima = (TextView) findViewById(R.id.txtClima);
-		
+
+		progress = new ProgressDialog(MainActivity.this);
+		progress.setMessage("Obteniendo datos... ;)");
+
 		df = new DecimalFormat("#.##");
 
 		Criteria criteria = new Criteria();
@@ -102,7 +106,6 @@ public class MainActivity extends android.support.v4.app.FragmentActivity
 
 		MapController.cargarMapa(map, miLat, miLon);
 		ConseguirDatos();
-		// aire();
 
 		btnCall.setOnClickListener(new OnClickListener() {
 
@@ -123,9 +126,9 @@ public class MainActivity extends android.support.v4.app.FragmentActivity
 				Log.e("Mi marker", idmarker);
 				if (idmarker.equals("m275")) {
 					Log.e("pisando mi marcador", idmarker);
-				}else{
-				MapController.goMarkerMap(MainActivity.this,
-						MapRowActivity.class, json, idmarker, miLat, miLon);
+				} else {
+					MapController.goMarkerMap(MainActivity.this,
+							MapRowActivity.class, json, idmarker, miLat, miLon);
 				}
 			}
 		});
@@ -144,9 +147,6 @@ public class MainActivity extends android.support.v4.app.FragmentActivity
 
 	public void ConseguirDatos() {
 
-		final ProgressDialog progress;
-		progress = new ProgressDialog(MainActivity.this);
-		progress.setMessage("Obteniendo datos... ;)");
 		progress.show();
 		AsyncHttpClient cliente = new AsyncHttpClient();
 		cliente.get("http://api.citybik.es/ecobici.json",
@@ -155,6 +155,7 @@ public class MainActivity extends android.support.v4.app.FragmentActivity
 					public void onSuccess(String response) {
 						// Log.e("JSON", response);
 						parseoDeDatosBici(response);
+						progress.dismiss();
 					}
 
 					@Override
@@ -164,7 +165,7 @@ public class MainActivity extends android.support.v4.app.FragmentActivity
 
 					@Override
 					public void onFailure(Throwable error) {
-						
+
 						progress.dismiss();
 						Toast.makeText(
 								getApplicationContext(),
@@ -172,8 +173,6 @@ public class MainActivity extends android.support.v4.app.FragmentActivity
 								Toast.LENGTH_LONG).show();
 						Log.e("Error", error.toString());
 					}
-					
-					
 
 				});
 		aire();
@@ -235,13 +234,24 @@ public class MainActivity extends android.support.v4.app.FragmentActivity
 																				// decimal
 				double lon = Integer.parseInt(jsonO.getString("lng")) / 1E6;
 				double dist = calcularDistancia(lat, lon, miLat, miLon);
-				//if (dist <= 3000) {
-					String distancia ="Distancia: "+ df.format(dist)+" Metros";//calcularDistancia(lat, lon, miLat, miLon))+" Metros";
-					arrayListItem.add(new ItemListaBicis(name, bicis, freePlace, distancia));
+				//if (dist <= 1500) {
+					String distancia = "Distancia: " + df.format(dist)
+							+ " Metros";// calcularDistancia(lat, lon, miLat,
+										// miLon))+" Metros";
+					Log.e("item", "si hay dentro del radio");
+					arrayListItem.add(new ItemListaBicis(name, bicis,
+							freePlace, distancia));
+					MapController.crearMarcador(map, name, lat, lon, true);
 				//}
-				
-				MapController.crearMarcador(map, name, lat, lon, true);
 
+			}
+
+			if (arrayListItem.size() <= 0) {
+				progress.dismiss();
+				Toast.makeText(
+						MainActivity.this,
+						"No pudimos encontrar bicicletas cerca de tu ubicacion...intenta mas tarde",
+						Toast.LENGTH_LONG).show();
 			}
 
 			ListaAdapter adapter = new ListaAdapter(parent, arrayListItem);
@@ -323,8 +333,8 @@ public class MainActivity extends android.support.v4.app.FragmentActivity
 				* Math.cos(Math.toRadians(latFin)) * Math.sin(desLon / 2)
 				* Math.sin(desLon / 2);
 		double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-		double result = (c * 6378.1) *1000;
-		//result = Double.valueOf(df.format(result));
+		double result = (c * 6378.1) * 1000;
+		// result = Double.valueOf(df.format(result));
 		return result;
 	}
 
